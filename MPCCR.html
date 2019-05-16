@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Harold Solomon's Portfolio</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="MPCCR.css">
+</head>
+<body>
+    <header class="container">
+        <div class="row">
+            <h1 class="col-sm-8">Harold's Portfolio</h1>
+            <nav class="col-sm-8 text-right">
+                <p><a role="button" href="Portfolio.html">home</a></p>
+                <p><a role="button" href="AboutMe.html">about me</a></p>
+                <p><a role="button" href="MyProjects.html">my projects</a></p>
+                <p><a role="button" href="ContactMe.html">contact me</a></p>
+            </nav>
+        </div>
+    </header>
+    <section id="section1" class="jumbotron">
+        <div class="container">
+            <div class="row text-center">
+                <h2>Motion Planning and Control of Collaborative Robot</h2>
+            </div>
+        </div>
+    </section>
+    <div id="pagetext" class="row text-center">
+        <h3>A Challenge in Dynamics, Controls, and Programming</h3>
+        <p>This project was performed on a CRS robot arm, a DSP, and Code Composer Studio. Simulations were performed using Mathematica, Matlab, and Simulink. 
+            Becoming acquainted with the physical parameters of the arm was necessary to perform proper calculations pertaining to the 
+            dynamics of the robot and for controller design. The below diagram from the CRS manual was used to do this.
+        </p>
+        <img id="fig1" src="https://lh3.googleusercontent.com/f4iMTVfQlf1eX0SiCxwZURwZToL4KkOKLL2aZGfaOem-8dXMz8gSdpFMJnuY_frYB846TS7CcS8CgLzswhfyMLshWmCEFNmBKyKOL6xMuM7moFeJ2Z6jo28bUeHuUT8iI2lTfvQ3ew=w2400">
+        <p>To begin the project, the robot needed to be calibrated. Because the robot was a double linkage, there were three main positions in which the robot needed 
+            to be placed in order to correctly map the movements of the robot to a cartesian basis. By calibrating in these positions, zero degrees and ninety degrees
+            in each motor was established. Doing this allowed me to map the angular positions of each motor to the location of the end-effector, thus performing the
+            project by D-H convention.
+        </p>
+        <div class="row">
+            <img id="fig2" src="https://lh3.googleusercontent.com/dOzeHwC6a9B-10pfznJ7VeV2zPgV98-kvfhllKvWATSLXOha9yzmZA4gexr0COIiVJz95iMcCEmzdY4rQSjLyAYefushx3f1-W3fivmU57TS7-_10fXpwjBJPj4OYGhA0i9sB_w7iA=w2400">
+            <img id="fig3" src="https://lh3.googleusercontent.com/KANC9U6veznQtHaP7R6h4R-Oi-6LX2AmJq4dkQuKhyVHhUnf51657eI5W0XnQYaRj9ROzGaq5KPqZteUdyH7GLQtaNRiiWt2JJskzhNPxZjm7h_XgVipK8fB6BXrtDefNc1wLO68rw=w2400">
+            <img id="fig4" src="https://lh3.googleusercontent.com/r8glbahF2jorIeNBolZjdSM8HlAxbTQxBgDGNlvTYkvFP7DzgHnlHaMoNLr2xXzUiraM-BaUYd-9sXnO-wpOLu4COAfz_bjPJyzvwWELaRAOCYhB1yU40k77MphGQZrFwYkhyML_mw=w2400">
+        </div>        
+        <p>Above, the three positions are shown: Upright, angled at ninety degrees, and outward. Additionally, the base of this arm swiveled, so a marker was placed
+            to indicate an arbitrary zero position.
+        </p>
+        <div class="row">
+            <img id="fig5" src="https://lh3.googleusercontent.com/RLLehNKPqrKeu_sXt0PzMl62kOzw348dba6YSNIvMC5BBiEus1mJicDqPovdO26X0dhl5ZpBU2PZzttMwqVK1pj7Qrbr7VAdpuSYmzhDu7sHN-uX9D5hpVaZ0cYv8dSFnrGGbmBn9Q=w1920-h1080">
+            <img id="fig6" src="https://lh3.googleusercontent.com/6Z_sPraRzuhIPW74bUdFevvFa0TsBtNz5khbe4G3g3prfF_PoCYHhMhpjDwIdD2iDxBex94k9OWQjahcFW7ShnSGTd5mUnn6xSU8AdG5sKLe1bUHIRkG3BveG4d_x-PhKAp5NKHsIQ=w1920-h1080">
+            <img id="fig7" src="https://lh3.googleusercontent.com/5LH7bdqFUbtM9h7mVkXkRU35n6-GcTCWohJT4NKx2BvgVEnDsi9TAqqyOJVhmce_aN9OvNnmxA-quC8ucmUA59zE1fX-2-kVBmUa75DrS30J3WyZbukV2iZCdNamaYRWB3kUaDnaXg=w1920-h1080">
+        </div>
+        <p>From there, I was able to implement a PID controller for the robot's motion. In this figure, the motion is simply rotating about the base joint.
+            Because of the PID controller, I was able to control damping and minimize overshooting during the motion from position to position. As is shown
+            in the plot, the motion of the robot (yellow) follows the simulated motion (purple) very closely.
+        </p>
+        <p>In addition to this, friction compensation was added to the controller such that all motions were unaffected by frictional forces. When no motion
+            was planned and the robot was subjected to force from my hand, the robot would move smoothly. This was my first time implementing force control.
+        </p>
+        <p>One more controller that assisted in my completion of the obstacle course was impedance control. This allowed the end-effector to be guided in
+            specific directions while maintaining rigidity in all other directions. In the case of this project, the impedance controller allowed me to move
+            the robot in the path of the obstacle course while remaining undisturbed by the walls and contacts around it.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DIvC_tcOyIQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
