@@ -52,6 +52,12 @@ header p {
     color: #fff;
 }
 
+#section1 h3 {
+    font-size: 30px;
+    font-weight: 350;
+    color: #fff;
+}
+
 #pagetext {
     align-content: center;
     margin-left: 100px;
